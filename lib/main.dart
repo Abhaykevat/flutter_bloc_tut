@@ -4,8 +4,6 @@ import 'package:flutter_bloc_tut/api_integration/get_request/post_bloc.dart';
 import 'package:flutter_bloc_tut/api_integration/get_request/post_event.dart';
 import 'package:flutter_bloc_tut/api_integration/get_request/post_page.dart';
 import 'package:flutter_bloc_tut/api_integration/get_request/post_repository.dart';
-import 'package:flutter_bloc_tut/counter_app/counter_bloc.dart';
-import 'package:flutter_bloc_tut/counter_app/counter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +20,21 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:BlocProvider(create: (context)=>PostBloc(PostRepository())..add(const FetchPosts()),child: PostPage(),),
+      // home:BlocProvider(create: (context)=>PostBloc(PostRepository())..add(const FetchPosts()),child: PostPage(),),
+      home: Builder(
+        builder: (context) {
+          return BlocProvider(
+            create: (context) {
+              final bloc = PostBloc(PostRepository());
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                bloc.add(const FetchPosts());
+              });
+              return bloc;
+            },
+            child: PostPage(),
+          );
+   },
+),
     );
   }
 }
