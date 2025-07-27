@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_tut/api_integration/get_reuest/post_bloc.dart';
-import 'package:flutter_bloc_tut/api_integration/get_reuest/post_event.dart';
-import 'package:flutter_bloc_tut/api_integration/get_reuest/post_page.dart';
-import 'package:flutter_bloc_tut/api_integration/get_reuest/post_repository.dart';
+import 'package:flutter_bloc_tut/api_integration/get_request/post_bloc.dart';
+import 'package:flutter_bloc_tut/api_integration/get_request/post_event.dart';
+import 'package:flutter_bloc_tut/api_integration/get_request/post_page.dart';
+import 'package:flutter_bloc_tut/api_integration/get_request/post_repository.dart';
 import 'package:flutter_bloc_tut/counter_app/counter_bloc.dart';
 import 'package:flutter_bloc_tut/counter_app/counter_screen.dart';
 
